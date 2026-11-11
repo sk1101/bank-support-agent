@@ -26,7 +26,9 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const endRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => endRef.current?.scrollIntoView({ behavior: "smooth" }), [messages, pending, loading]);
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, pending, loading]);
 
   async function call(body: Record<string, unknown>) {
     setLoading(true);
